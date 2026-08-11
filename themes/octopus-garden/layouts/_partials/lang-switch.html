@@ -1,0 +1,24 @@
+{{- if hugo.IsMultilingual }}
+  <nav class="lang-switch" aria-label="Language">
+    <ul>
+      {{- range site.Languages }}
+        {{- $lang := . }}
+        <li>
+          {{- if eq $lang site.Language }}
+            <span aria-current="true">{{ $lang.LanguageName }}</span>
+          {{- else }}
+            {{- $target := "" }}
+            {{- with index (where $.Translations "Language.Lang" $lang.Lang) 0 }}
+              {{- $target = . }}
+            {{- else }}
+              {{- with index (where $.Site.Home.AllTranslations "Language.Lang" $lang.Lang) 0 }}
+                {{- $target = . }}
+              {{- end }}
+            {{- end }}
+            <a href="{{ with $target }}{{ .RelPermalink }}{{ else }}{{ $.Site.Home.RelPermalink }}{{ end }}">{{ $lang.LanguageName }}</a>
+          {{- end }}
+        </li>
+      {{- end }}
+    </ul>
+  </nav>
+{{- end }}

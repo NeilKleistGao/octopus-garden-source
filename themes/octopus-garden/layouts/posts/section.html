@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Pages }}
+    <section>
+      <h2>
+        <a href="{{ .RelPermalink }}">
+          <span class="post-icon">
+            {{- $svg := readFile "themes/octopus-garden/static/gems.svg" -}}
+            {{- $svg = replaceRE `^<\?xml[^>]*\?>` "" $svg -}}
+            {{- $svg = replaceRE `^<!DOCTYPE[^>]*>` "" $svg -}}
+            {{- $svg = replace $svg "fill=\"#ffffff\"" "fill=\"#ffdb94\"" -}}
+            {{- $svg | safeHTML -}}
+          </span>
+          {{ .LinkTitle }}
+        </a>
+      </h2>
+      {{ .Summary }}
+    </section>
+  {{ end }}
+{{ end }}

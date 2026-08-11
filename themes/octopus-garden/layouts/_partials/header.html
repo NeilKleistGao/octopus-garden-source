@@ -1,0 +1,13 @@
+<h1 class="site-title">
+  <a href="{{ site.Home.RelPermalink }}">
+    <span class="site-icon">
+      {{- $svg := readFile "themes/octopus-garden/static/octopus-16.svg" -}}
+      {{- $svg = replaceRE `^<\?xml[^>]*\?>` "" $svg -}}
+      {{- $svg = replaceRE `^<!DOCTYPE[^>]*>` "" $svg -}}
+      {{- $svg | safeHTML -}}
+    </span>
+    {{ site.Title }}
+  </a>
+</h1>
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+{{ partial "lang-switch.html" . }}

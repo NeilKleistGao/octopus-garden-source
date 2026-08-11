@@ -1,0 +1,17 @@
+baseURL = 'https://example.org/'
+theme = 'octopus-garden'
+
+defaultContentLanguage = 'zh-cn'
+
+[languages]
+  [languages.'zh-cn']
+    languageCode = 'zh-cn'
+    languageName = '中文'
+    title = "Fa1sePRoMiSe的章鱼花园"
+    weight = 1
+
+  [languages.en]
+    languageCode = 'en'
+    languageName = 'Eng'
+    title = "Fa1sePRoMiSe's Octopus Garden"
+    weight = 2

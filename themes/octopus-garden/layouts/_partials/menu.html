@@ -1,0 +1,68 @@
+{{- /*
+Renders a menu for the given menu ID.
+
+@context {page} page The current page.
+@context {string} menuID The menu ID.
+
+@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+*/}}
+
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+  <nav>
+    <ul>
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+  </nav>
+{{- end }}
+
+{{- define "_partials/inline/menu/walk.html" }}
+  {{- $page := .page }}
+  {{- $iconColors := dict
+    "home" "#de81bd"
+    "games" "#94b252"
+    "reviews" "#39a2de"
+    "posts" "#ffdb94"
+  }}
+  {{- range .menuEntries }}
+    {{- $attrs := dict "href" .URL }}
+    {{- if $page.IsMenuCurrent .Menu . }}
+      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+    {{- else if $page.HasMenuCurrent .Menu .}}
+      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+    {{- end }}
+    {{- $name := .Name }}
+    {{- with .Identifier }}
+      {{- with T . }}
+        {{- $name = . }}
+      {{- end }}
+    {{- end }}
+    {{- $icon := "" }}
+    {{- with .Identifier }}
+      {{- $color := index $iconColors . }}
+      {{- if $color }}
+        {{- $svg := readFile "themes/octopus-garden/static/sharpicons_Shell.svg" }}
+        {{- $svg = replaceRE `^<\?xml[^>]*\?>` "" $svg }}
+        {{- $svg = replaceRE `^<!DOCTYPE[^>]*>` "" $svg }}
+        {{- $svg = replace $svg "fill=\"#ffffff\"" (printf "fill=%q" $color) }}
+        {{- $icon = printf "<span class=\"menu-icon\">%s</span>" $svg }}
+      {{- end }}
+    {{- end }}
+    <li>
+      <a
+        {{- range $k, $v := $attrs }}
+          {{- with $v }}
+            {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+          {{- end }}
+        {{- end -}}
+      >{{ $icon | safeHTML }}{{ $name }}</a>
+      {{- with .Children }}
+        <ul>
+          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+        </ul>
+      {{- end }}
+    </li>
+  {{- end }}
+{{- end }}

@@ -1,0 +1,11 @@
+[home]
+other = "Home"
+
+[games]
+other = "Games"
+
+[reviews]
+other = "Reviews"
+
+[posts]
+other = "Posts"

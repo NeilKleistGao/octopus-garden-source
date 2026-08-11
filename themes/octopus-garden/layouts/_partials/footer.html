@@ -1,0 +1,9 @@
+<div class="footer-icons">
+  {{- $svg := readFile "themes/octopus-garden/static/octopus-16.svg" -}}
+  {{- $svg = replaceRE `^<\?xml[^>]*\?>` "" $svg -}}
+  {{- $svg = replaceRE `^<!DOCTYPE[^>]*>` "" $svg -}}
+  {{- range slice "#c6616b" "#a5dbe7" "#7ba24a" "#ffdb94" }}
+    <span class="footer-icon">{{ replace $svg "fill=\"#ffffff\"" (printf "fill=%q" .) | safeHTML }}</span>
+  {{- end }}
+</div>
+<p class="footer-copyright">Copyright {{ now.Year }}. All rights reserved.</p>

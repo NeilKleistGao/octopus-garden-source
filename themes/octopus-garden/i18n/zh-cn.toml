@@ -1,0 +1,11 @@
+[home]
+other = "首页"
+
+[games]
+other = "游戏"
+
+[reviews]
+other = "评测"
+
+[posts]
+other = "文章"
