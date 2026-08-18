@@ -1,3 +1,3 @@
 +++
-title = 'Reviews'
+title = '评测'
 +++

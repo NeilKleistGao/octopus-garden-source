@@ -1,3 +1,3 @@
 +++
-title = 'Games'
+title = '游戏'
 +++
