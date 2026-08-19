@@ -15,18 +15,6 @@ title = 'My New Hugo Project'
     pageRef = '/games'
     weight = 20
 
-  [[menus.main]]
-    name = 'Reviews'
-    identifier = 'reviews'
-    pageRef = '/reviews'
-    weight = 30
-
-  [[menus.main]]
-    name = 'Posts'
-    identifier = 'posts'
-    pageRef = '/posts'
-    weight = 40
-
 [module]
   [module.hugoVersion]
     extended = false

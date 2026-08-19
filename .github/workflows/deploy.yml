@@ -28,7 +28,7 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          external_repository: NeilKleistGao/NeilKleistGao.github.io
+          personal_token: ${{ secrets.OCTOPUS_GARDEN_ACCESS_TOKEN }}
+          external_repository: NeilKleistGao/octopus-garden
           publish_branch: main
           publish_dir: ./public
