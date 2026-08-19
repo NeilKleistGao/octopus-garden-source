@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://neilkleistgao.github.io/octopus-garden/'
 theme = 'octopus-garden'
 
 defaultContentLanguage = 'zh-cn'
