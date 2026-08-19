@@ -24,9 +24,37 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initOctopusIcon);
-  } else {
+  function initVisitorLocation() {
+    const el = document.getElementById('visitor-location');
+    if (!el) return;
+
+    const lang = document.documentElement.lang || 'zh-CN';
+
+    fetch('https://ipwho.is/?lang=' + encodeURIComponent(lang))
+      .then(function (res) {
+        if (!res.ok) throw new Error('ipwho.is ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data.success) return;
+        const parts = [data.city, data.region, data.country].filter(Boolean);
+        if (parts.length === 0) return;
+        el.textContent = el.dataset.label + ' ' + parts.join(' · ');
+        el.hidden = false;
+      })
+      .catch(function () {
+        // 查询失败时保持隐藏
+      });
+  }
+
+  function init() {
     initOctopusIcon();
+    initVisitorLocation();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();

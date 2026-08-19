@@ -9,3 +9,6 @@ other = "评测"
 
 [posts]
 other = "文章"
+
+[visitorLocation]
+other = "章鱼发现你来自"

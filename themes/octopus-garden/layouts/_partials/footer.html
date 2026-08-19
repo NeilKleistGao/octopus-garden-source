@@ -6,4 +6,5 @@
     <span class="footer-icon">{{ replace $svg "fill=\"#ffffff\"" (printf "fill=%q" .) | safeHTML }}</span>
   {{- end }}
 </div>
+<span id="visitor-location" class="footer-location" data-label="{{ T "visitorLocation" }}" hidden></span>
 <p class="footer-copyright">Copyright {{ now.Year }}. All rights reserved.</p>

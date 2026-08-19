@@ -31,6 +31,13 @@ footer {
   width: 100%;
 }
 
+.footer-location {
+  font-size: 0.875rem;
+  margin-left: 0.75rem;
+  margin-right: auto;
+  opacity: 0.85;
+}
+
 .footer-copyright {
   margin: 0;
 }

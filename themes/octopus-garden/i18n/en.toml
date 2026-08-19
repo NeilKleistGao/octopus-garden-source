@@ -9,3 +9,6 @@ other = "Reviews"
 
 [posts]
 other = "Posts"
+
+[visitorLocation]
+other = "The octopus found you from"
