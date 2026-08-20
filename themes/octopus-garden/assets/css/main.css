@@ -1,5 +1,7 @@
 @import "components/header.css";
 @import "components/footer.css";
+@import "components/carousel.css";
+@import "components/decorations.css";
 
 body {
   background-color: #739ade;
@@ -12,9 +14,10 @@ body {
 main {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 768px;
+  max-width: 1080px;
+  min-height: 60vh;
   padding: 1rem;
-  padding-bottom: 4rem;
+  padding-bottom: 10rem;
 }
 
 a {

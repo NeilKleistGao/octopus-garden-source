@@ -1,5 +1,34 @@
 {{ define "main" }}
-  {{ with site.GetPage "/about" }}
-    {{ .Content }}
-  {{ end }}
+  {{- with site.GetPage "/games" }}
+    {{- $games := .Pages }}
+    {{- if $games }}
+    <div class="game-gallery">
+      <div class="game-carousel">
+        <button type="button" class="carousel-btn carousel-prev" aria-label="prev">&#10094;</button>
+        <div class="carousel-track">
+          {{- range $i, $g := $games }}
+          <button type="button" class="carousel-item{{ if eq $i 0 }} active{{ end }}" data-target="game-panel-{{ $i }}">
+            {{- with $g.Params.cover }}
+            <img src="{{ . | relURL }}" alt="{{ $g.Title }}">
+            {{- else }}
+            <span class="carousel-item-fallback">{{ $g.Title }}</span>
+            {{- end }}
+          </button>
+          {{- end }}
+        </div>
+        <button type="button" class="carousel-btn carousel-next" aria-label="next">&#10095;</button>
+      </div>
+      {{- range $i, $g := $games }}
+      <article id="game-panel-{{ $i }}" class="game-panel"{{ if ne $i 0 }} hidden{{ end }}>
+        <h2 class="game-panel-title">{{ $g.Title }}</h2>
+        <div class="game-panel-content">{{ $g.Content }}</div>
+      </article>
+      {{- end }}
+    </div>
+    {{- else }}
+    <div class="game-gallery-empty">
+      <span class="game-gallery-empty-text">{{ T "noData" }}</span>
+    </div>
+    {{- end }}
+  {{- end }}
 {{ end }}

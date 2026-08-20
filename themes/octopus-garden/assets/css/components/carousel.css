@@ -1,0 +1,125 @@
+/* 章鱼花园主页：游戏封面轮播 + 内容面板
+   所有颜色取自 Pokemon Crystal Legacy 调色板 */
+
+.game-gallery {
+  margin-top: 2rem;
+}
+
+.game-carousel {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem 0.5rem;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  background-color: #bdcbef;
+  border: 4px solid #3a698c;
+  border-radius: 16px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  height: 150px;
+  overflow: hidden;
+  padding: 0;
+  scroll-snap-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  width: 220px;
+}
+
+.carousel-item img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.carousel-item-fallback {
+  align-items: center;
+  color: #3a698c;
+  display: flex;
+  font-weight: bold;
+  height: 100%;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.carousel-item:hover {
+  border-color: #de81bd;
+  transform: translateY(-4px);
+}
+
+.carousel-item.active {
+  border-color: #ffdb94;
+  box-shadow: 0 0 0 4px #de81bd;
+  transform: scale(1.05);
+}
+
+.carousel-btn {
+  background-color: #3a698c;
+  border: none;
+  border-radius: 50%;
+  color: #f7f3f7;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 1.25rem;
+  height: 2.75rem;
+  line-height: 1;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 2.75rem;
+}
+
+.carousel-btn:hover {
+  background-color: #de81bd;
+  transform: scale(1.1);
+}
+
+.game-panel {
+  background-color: #f7f3f7;
+  border: 4px solid #3a698c;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #3a698c;
+  color: #000000;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.game-panel-title {
+  color: #c6616b;
+  margin-top: 0;
+}
+
+.game-panel-content > :last-child {
+  margin-bottom: 0;
+}
+
+.game-gallery-empty {
+  background-color: #f7f3f7;
+  border: 4px solid #3a698c;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #3a698c;
+  margin-top: 2rem;
+  min-height: 240px;
+  position: relative;
+}
+
+.game-gallery-empty-text {
+  bottom: 1rem;
+  color: #7b797b;
+  font-size: 0.875rem;
+  position: absolute;
+  right: 1.25rem;
+}

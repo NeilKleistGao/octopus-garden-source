@@ -1,0 +1,75 @@
+{{- $octopus := readFile "themes/octopus-garden/static/octopus-16.svg" -}}
+{{- $octopus = replaceRE `^<\?xml[^>]*\?>` "" $octopus -}}
+{{- $octopus = replaceRE `^<!DOCTYPE[^>]*>` "" $octopus -}}
+{{- $octopus = replace $octopus `fill="#ffffff"` `fill="currentColor"` -}}
+{{- $shell := readFile "themes/octopus-garden/static/sharpicons_Shell.svg" -}}
+{{- $shell = replaceRE `^<\?xml[^>]*\?>` "" $shell -}}
+{{- $shell = replaceRE `^<!DOCTYPE[^>]*>` "" $shell -}}
+{{- $shell = replace $shell `fill="#ffffff"` `fill="currentColor"` -}}
+{{- $gems := readFile "themes/octopus-garden/static/gems.svg" -}}
+{{- $gems = replaceRE `^<\?xml[^>]*\?>` "" $gems -}}
+{{- $gems = replaceRE `^<!DOCTYPE[^>]*>` "" $gems -}}
+{{- $gems = replace $gems `fill="#ffffff"` `fill="currentColor"` -}}
+
+<div class="sea-decor sea-decor-left" aria-hidden="true">
+  <span class="bubble b1"></span>
+  <span class="bubble b2"></span>
+  <span class="bubble b3"></span>
+  <span class="sea-octopus" data-random-color>{{ $octopus | safeHTML }}</span>
+</div>
+<div class="sea-decor sea-decor-right" aria-hidden="true">
+  <span class="bubble b1"></span>
+  <span class="bubble b2"></span>
+  <span class="bubble b3"></span>
+  <span class="sea-octopus" data-random-color>{{ $octopus | safeHTML }}</span>
+</div>
+
+<div class="seabed" aria-hidden="true">
+  <svg class="seaweed s1" viewBox="0 0 40 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 120 C 8 92, 32 74, 20 46 C 10 22, 28 12, 20 0" stroke="#7ba24a" stroke-width="9" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="seaweed s2" viewBox="0 0 40 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 120 C 32 96, 8 76, 20 50 C 30 28, 12 14, 20 0" stroke="#94b252" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="seaweed s3" viewBox="0 0 40 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 120 C 10 98, 30 80, 18 54 C 8 32, 26 16, 20 0" stroke="#5a7131" stroke-width="10" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="seaweed s4" viewBox="0 0 40 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 120 C 30 94, 10 78, 22 52 C 32 30, 14 14, 20 0" stroke="#84924a" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="seaweed s5" viewBox="0 0 40 120" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 120 C 12 100, 28 82, 18 58 C 10 38, 26 20, 20 0" stroke="#adc363" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="coral c1" viewBox="0 0 50 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 60 V28 M25 42 C 14 40, 9 31, 11 19 M25 34 C 36 32, 41 23, 39 11 M25 50 C 17 48, 12 43, 11 37" stroke="#e7829c" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="coral c2" viewBox="0 0 50 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 60 V32 M25 44 C 35 42, 40 34, 38 24 M25 38 C 15 36, 10 28, 12 18" stroke="#c6616b" stroke-width="8" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="starfish" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 4 L30 19 L46 19 L33 29 L38 45 L25 35 L12 45 L17 29 L4 19 L20 19 Z" fill="#f7c384"/>
+  </svg>
+  <span class="sea-octopus seabed-octopus" data-random-color>{{ $octopus | safeHTML }}</span>
+  <svg class="fish fish-ltr" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 15 C 15 4, 36 4, 46 15 C 36 26, 15 26, 5 15 Z" fill="#4a92de"/>
+    <path d="M46 15 L59 5 L59 25 Z" fill="#4a92de"/>
+    <circle cx="14" cy="12" r="2.5" fill="#f7f3f7"/>
+  </svg>
+  <svg class="fish fish-rtl" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 15 C 15 4, 36 4, 46 15 C 36 26, 15 26, 5 15 Z" fill="#e79ab5"/>
+    <path d="M46 15 L59 5 L59 25 Z" fill="#e79ab5"/>
+    <circle cx="14" cy="12" r="2.5" fill="#f7f3f7"/>
+  </svg>
+  <span class="pebble p1"></span>
+  <span class="pebble p2"></span>
+  <span class="pebble p3"></span>
+  <span class="pebble p4"></span>
+  <span class="pebble p5"></span>
+  <span class="pebble p6"></span>
+  <span class="sea-shell">{{ $shell | safeHTML }}</span>
+  <span class="sea-gems" data-random-color>{{ $gems | safeHTML }}</span>
+  <span class="bubble b1"></span>
+  <span class="bubble b2"></span>
+  <span class="bubble b3"></span>
+  <span class="bubble b4"></span>
+</div>

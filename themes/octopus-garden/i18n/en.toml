@@ -12,3 +12,6 @@ other = "Posts"
 
 [visitorLocation]
 other = "The octopus found you from"
+
+[noData]
+other = "No data yet"

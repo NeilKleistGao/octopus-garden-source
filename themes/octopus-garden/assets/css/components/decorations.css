@@ -1,0 +1,212 @@
+/* 章鱼花园动态装饰：两侧章鱼与气泡 + 页脚上方海床
+   所有颜色取自 Pokemon Crystal Legacy 调色板 */
+
+@keyframes octopus-bob {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-14px) rotate(3deg); }
+}
+
+@keyframes bubble-rise {
+  0% { opacity: 0; transform: translateY(0) scale(0.6); }
+  15% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-180px) scale(1.2); }
+}
+
+@keyframes seaweed-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+.sea-decor {
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5rem;
+  z-index: 0;
+}
+
+.sea-decor-left {
+  left: 1.5rem;
+}
+
+.sea-decor-right {
+  right: 1.5rem;
+}
+
+.sea-octopus {
+  --c: #de81bd;
+  animation: octopus-bob 5s ease-in-out infinite;
+  color: var(--c);
+  display: block;
+  line-height: 0;
+}
+
+.sea-decor-right .sea-octopus {
+  animation-delay: 2.5s;
+}
+
+.sea-octopus svg {
+  height: auto;
+  width: 100%;
+}
+
+.bubble {
+  animation: bubble-rise 4s ease-in infinite;
+  background-color: #a5dbe7;
+  border-radius: 50%;
+  display: block;
+  opacity: 0;
+  position: absolute;
+}
+
+.sea-decor .bubble {
+  bottom: 100%;
+}
+
+.b1 { height: 0.6rem; left: 15%; width: 0.6rem; }
+.b2 { animation-delay: 1.4s; height: 0.4rem; left: 55%; width: 0.4rem; }
+.b3 { animation-delay: 2.6s; height: 0.8rem; left: 35%; width: 0.8rem; }
+.b4 { animation-delay: 3.4s; height: 0.5rem; left: 75%; width: 0.5rem; }
+
+.seabed {
+  bottom: 4rem;
+  height: 5.5rem;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  z-index: 0;
+}
+
+.seaweed {
+  animation: seaweed-sway 4.5s ease-in-out infinite;
+  bottom: 0;
+  position: absolute;
+  transform-origin: bottom center;
+}
+
+.seaweed.s1 { height: 4.5rem; left: 8%; }
+.seaweed.s2 { animation-delay: 1.2s; height: 3.5rem; left: 16%; }
+.seaweed.s3 { animation-delay: 2s; height: 5.5rem; right: 10%; }
+
+.sea-shell {
+  bottom: 0.4rem;
+  color: #ffdb94;
+  display: block;
+  line-height: 0;
+  position: absolute;
+  right: 24%;
+  width: 2rem;
+}
+
+.sea-gems {
+  --c: #bdcbef;
+  bottom: 0.4rem;
+  color: var(--c);
+  display: block;
+  left: 26%;
+  line-height: 0;
+  position: absolute;
+  width: 2.2rem;
+}
+
+.sea-shell svg,
+.sea-gems svg {
+  height: auto;
+  width: 100%;
+}
+
+.seabed .bubble {
+  bottom: 0.5rem;
+  animation-duration: 5s;
+}
+
+.seabed .b1 { left: 40%; }
+.seabed .b2 { left: 58%; }
+.seabed .b3 { left: 72%; }
+.seabed .b4 { left: 32%; }
+
+.seaweed.s4 { animation-delay: 0.6s; height: 3rem; right: 20%; }
+.seaweed.s5 { animation-delay: 1.8s; height: 2.5rem; left: 42%; }
+
+.coral {
+  animation: seaweed-sway 6s ease-in-out infinite;
+  bottom: 0;
+  position: absolute;
+  transform-origin: bottom center;
+}
+
+.coral.c1 { height: 3.2rem; left: 34%; }
+.coral.c2 { animation-delay: 2.4s; height: 2.6rem; right: 32%; }
+
+.starfish {
+  bottom: 0.3rem;
+  height: 1.6rem;
+  left: 50%;
+  position: absolute;
+}
+
+.seabed-octopus {
+  bottom: 0.2rem;
+  position: absolute;
+  right: 4%;
+  width: 2.6rem;
+}
+
+.fish {
+  left: 0;
+  position: absolute;
+  width: 2.2rem;
+}
+
+.fish-ltr {
+  animation: fish-swim-ltr 22s linear infinite;
+  bottom: 3.4rem;
+}
+
+.fish-rtl {
+  animation: fish-swim-rtl 30s linear infinite;
+  animation-delay: 6s;
+  bottom: 1.8rem;
+}
+
+@keyframes fish-swim-ltr {
+  from { transform: translateX(-15vw) scaleX(-1); }
+  to { transform: translateX(115vw) scaleX(-1); }
+}
+
+@keyframes fish-swim-rtl {
+  from { transform: translateX(115vw); }
+  to { transform: translateX(-15vw); }
+}
+
+.pebble {
+  border-radius: 50%;
+  bottom: 0.1rem;
+  display: block;
+  position: absolute;
+}
+
+.p1 { background-color: #b5b2b5; height: 0.5rem; left: 3%; width: 0.9rem; }
+.p2 { background-color: #a49a94; height: 0.4rem; left: 30%; width: 0.7rem; }
+.p3 { background-color: #ada29c; height: 0.6rem; left: 55%; width: 1rem; }
+.p4 { background-color: #7b929c; height: 0.4rem; left: 68%; width: 0.7rem; }
+.p5 { background-color: #b5b2b5; height: 0.5rem; left: 86%; width: 0.8rem; }
+.p6 { background-color: #a49a94; height: 0.35rem; left: 47%; width: 0.6rem; }
+
+@media (max-width: 1320px) {
+  .sea-decor {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sea-octopus,
+  .seaweed,
+  .coral,
+  .fish,
+  .bubble {
+    animation: none;
+  }
+}

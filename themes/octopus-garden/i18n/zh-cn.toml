@@ -12,3 +12,6 @@ other = "文章"
 
 [visitorLocation]
 other = "章鱼发现你来自"
+
+[noData]
+other = "暂无数据"
